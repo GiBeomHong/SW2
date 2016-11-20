@@ -171,6 +171,14 @@
             var cnt1 = model[0].cnt; var cnt2 = model[1].cnt; var cnt3 = model[2].cnt; var cnt4 = model[3].cnt;
             var cnt5 = model[4].cnt; var cnt6 = model[5].cnt; var cnt7 = model[6].cnt; var cnt8 = model[7].cnt;
 
+            var max=0;
+            for(var i=0; i<8 ; i++){
+                if(max < model[i].cnt) max=model[i].cnt;
+            }
+            var digit = 1;
+            while(max / digit > 10){
+                digit *=10;
+            }
 
             var options = {
                 'legend': {
@@ -184,8 +192,8 @@
                 'chartDiv': 'Nwagon',
                 'chartType': 'column',
                 'chartSize': { width: 1100, height: 500 },
-                'maxValue': 90000,
-                'increment': 10000
+                'maxValue': 10*digit,
+                'increment': digit
             };
             Nwagon.chart(options);
         </script>

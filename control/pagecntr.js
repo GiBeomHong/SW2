@@ -23,6 +23,8 @@ exports.woman=function (req,res,callback){
     })
 }
 
+
+//DB 초기화
 exports.enrollpage=function (req,res,callback){
     res.render("../views/enroll.html");
 }
