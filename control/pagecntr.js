@@ -14,6 +14,9 @@ exports.man=function (req,res,callback){
     mdd.find({gender:gender},function(err,model){
         res.render("../views/man.html",{model:model});
     })
+
+    console.log("ip is "+require('my-local-ip')());
+
 }
 
 exports.woman=function (req,res,callback){

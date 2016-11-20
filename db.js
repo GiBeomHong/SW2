@@ -15,7 +15,7 @@ var dbOptions = {
     // user : 'dba',
     // pass : 'writecode'
 }, mongoose = require('mongoose'), dbUri = process.env.MONGODB_URI
-    || 'mongodb://localhost:27017';
+    || 'mongodb://54.205.220.77:27017';
 module.exports = mongoose;
 module.exports.start = function(callback) {
     mongoose.connect(dbUri, dbOptions, function(err) {

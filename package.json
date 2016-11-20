@@ -16,6 +16,7 @@
     "ejs" : "*",
     "async": "^2.0.0-rc.1",
     "mongoose":"~4.4.16",
+    "my-loacl-ip":"*",
     "http" : "*"
   }
 }
