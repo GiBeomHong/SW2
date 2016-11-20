@@ -14,6 +14,7 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "ejs" : "*",
-    "mongooese":"~4.4.16"
+    "mongooese":"~4.4.16",
+    "http":"*"
   }
 }
