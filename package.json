@@ -15,6 +15,6 @@
     "serve-favicon": "~2.3.0",
     "ejs" : "*",
     "mongooese":"~4.4.16",
-    "http":"*"
+    "http" : "*"
   }
 }
