@@ -15,7 +15,7 @@ exports.man=function (req,res,callback){
         res.render("../views/man.html",{model:model});
     })
 
-    console.log("ip is "+require('my-local-ip')());
+    // console.log("ip is "+require('my-local-ip')());
 
 }
 
