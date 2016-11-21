@@ -84,7 +84,6 @@
         </div>
     </div>
 
-    <form action="/woman_vote" method="post">
     <div class="container">
         <div class="row" style="margin-bottom : 30px;">
             <div class="col-lg-3 col-md-6 text-center">
@@ -92,7 +91,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m1.jpg">
                     <h3>박보검</h3>
                     <p class="text-muted">"응답하라 1988"</p>
-                    <input name="id" type="submit" class="form-control" value="1">
+                    <input name="id" id="model_1"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
@@ -100,7 +99,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m2.jpg">
                     <h3>공유</h3>
                     <p class="text-muted">"부산행"</p>
-                    <input name="id" type="submit" class="form-control" value="2">
+                    <input name="id" id="model_2"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
@@ -108,7 +107,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m3.png">
                     <h3>Leonardo Dicaprio</h3>
                     <p class="text-muted">Oscar Reward</p>
-                    <input name="id" type="submit" class="form-control" value="3">
+                    <input name="id" id="model_3"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
@@ -116,7 +115,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m8.jpg">
                     <h3>마동석</h3>
                     <p class="text-muted">"마요미"</p>
-                    <input name="id" type="submit" class="form-control" value="4">
+                    <input name="id" id="model_4"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
         </div>
@@ -127,7 +126,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m4.jpg">
                     <h3>이제훈</h3>
                     <p class="text-muted">"건축학개론"</p>
-                    <input name="id" type="submit" class="form-control" value="5">
+                    <input name="id" id="model_5"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
@@ -136,7 +135,7 @@
                         <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m5.jpg">
                         <h3>송중기</h3>
                         <p class="text-muted">"태양의 후예"</p>
-                        <input name="id" type="submit" class="form-control" value="6">
+                        <input name="id" id="model_6"   class="btn form-control" type="button" value="0 표">
                     </div>
                 </div>
             </div>
@@ -145,7 +144,7 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m6.jpg">
                     <h3>이민호</h3>
                     <p class="text-muted">"꽃보다 남자"</p>
-                    <input name="id" type="submit" class="form-control" value="7">
+                    <input name="id" id="model_7"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
@@ -153,43 +152,17 @@
                     <img style="width:100%; height: 200px; overflow:hidden;" src="images/Model/m7.jpg">
                     <h3>Seon O'pry</h3>
                     <p class="text-muted">Model</p>
-                    <input name="id" type="submit" class="form-control" value="8">
+                    <input name="id" id="model_8"   class="btn form-control" type="button" value="0 표">
                 </div>
             </div>
         </div>
     </div>
-    </form>
 </section>
 
 <section id="services">
     <div class="container">
         <div id="Nwagon"></div>
-        <script>
-            var model =  <%-JSON.stringify(model)%>;
-            var name1 = model[0].name; var name2 = model[1].name; var name3 = model[2].name; var name4 = model[3].name;
-            var name5 = model[4].name; var name6 = model[5].name; var name7 = model[6].name; var name8 = model[7].name;
 
-            var cnt1 = model[0].cnt; var cnt2 = model[1].cnt; var cnt3 = model[2].cnt; var cnt4 = model[3].cnt;
-            var cnt5 = model[4].cnt; var cnt6 = model[5].cnt; var cnt7 = model[6].cnt; var cnt8 = model[7].cnt;
-
-
-            var options = {
-                'legend': {
-                    names: [name1,name2,name3,name4,name5,name6,name7,name8],
-                },
-                'dataset': {
-                    title: 'Playing time per day',
-                    values: [cnt1,cnt2,cnt3,cnt4,cnt5,cnt6,cnt7,cnt8],
-                    colorset: ['#DC143C', '#FF8C00', "#30a1ce"]
-                },
-                'chartDiv': 'Nwagon',
-                'chartType': 'column',
-                'chartSize': { width: 1100, height: 500 },
-                'maxValue': 90000,
-                'increment': 10000
-            };
-            Nwagon.chart(options);
-        </script>
     </div>
 </section>
 
@@ -208,9 +181,82 @@
 
 <!-- Theme JavaScript -->
 <script src="javascripts/creative.min.js"></script>
+<script >
+
+    var model =  <%-JSON.stringify(model)%>;
+    var i ;
+    for(i=0 ; i<8; i++){
+        $("#model_"+(i+1)).val(""+model[i].cnt+" 표");
+    }
+
+    $(".btn").click(function () {
+        var id = $(this).attr("id");
+        var num = id.split("_")[1];
+        $.post("/woman_vote", {idx: num },
+                function(data) {
+                    if(data.suc == false){
+                        return;
+                    }
+                    console.log(data);
+                    var btn_id = "#model_"+data.result.num;
+                    $(btn_id).val(""+data.result.cnt+" 표");
+
+                    set_chart(get_cnt(1), get_cnt(2), get_cnt(3), get_cnt(4),
+                            get_cnt(5), get_cnt(6), get_cnt(7), get_cnt(8));
+                },
+                "json"
+        );
+    });
+
+    function get_cnt(idx){
+        var id = "#model_"+idx;
+        var str = $(id).val();
+        return str.replace( /[^0-9]/g, '');
+    }
+</script>
+
 
 <script>
     var model =  <%-JSON.stringify(model)%>;
+
+    var cnt1 = model[0].cnt; var cnt2 = model[1].cnt; var cnt3 = model[2].cnt; var cnt4 = model[3].cnt;
+    var cnt5 = model[4].cnt; var cnt6 = model[5].cnt; var cnt7 = model[6].cnt; var cnt8 = model[7].cnt;
+
+    function set_chart(cnt1,cnt2,cnt3,cnt4,cnt5,cnt6,cnt7,cnt8) {
+        $("#Nwagon").html("");
+        var model =  <%-JSON.stringify(model)%>;
+        var name1 = model[0].name; var name2 = model[1].name; var name3 = model[2].name; var name4 = model[3].name;
+        var name5 = model[4].name; var name6 = model[5].name; var name7 = model[6].name; var name8 = model[7].name;
+
+        var max = 0;
+        for (var i = 0; i < 8; i++) {
+            if (max < model[i].cnt) max = model[i].cnt;
+        }
+        var digit = 1;
+        while (max / digit > 10) {
+            digit *= 10;
+        }
+
+        var options = {
+            'legend': {
+                names: [name1, name2, name3, name4, name5, name6, name7, name8],
+            },
+            'dataset': {
+                title: 'Playing time per day',
+                values: [cnt1, cnt2, cnt3, cnt4, cnt5, cnt6, cnt7, cnt8],
+                colorset: ['#DC143C', '#FF8C00', "#30a1ce"]
+            },
+            'chartDiv': 'Nwagon',
+            'chartType': 'column',
+            'chartSize': {width: 1100, height: 500},
+            'maxValue': 10 * digit,
+            'increment': digit
+        };
+        Nwagon.chart(options);
+    }
+
+    set_chart(cnt1,cnt2,cnt3,cnt4,cnt5,cnt6,cnt7,cnt8);
 </script>
+
 </body>
 </html>

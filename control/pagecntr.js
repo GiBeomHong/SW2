@@ -6,21 +6,21 @@ var ip = require('my-local-ip');
 
 exports.mainpage=function (req,res,callback){
 
-    res.render("../views/index.html");
+    res.render("../views/index.html",{host_ip:ip()});
 }
 
 exports.man=function (req,res,callback){
     var gender = "woman";
-    mdd.find({gender:gender},function(err,model){
-        res.render("../views/man.html",{model:model, host_ip:ip()});
-    })
+    mdd.find({gender:gender}).sort('num').exec(function(err,model){
+        res.render("../views/man.html",{model:model});
+    });
 }
 
 exports.woman=function (req,res,callback){
     var gender = "man";
-    mdd.find({gender:gender},function(err,model){
+    mdd.find({gender:gender}).sort('num').exec(function(err,model){
         res.render("../views/woman.html",{model:model});
-    })
+    });
 }
 
 

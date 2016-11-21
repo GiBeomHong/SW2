@@ -10,34 +10,37 @@ var async = require( 'async' );
 
 
 exports.man_vote = function (req,res,callback){
-
-
-    var id = req.body.id;
+    var id = req.body.idx;
     var gender = "woman"
 
     mdd
         .find({num:id,gender:gender})
         .exec(function(err,model){
             model[0].cnt++;
-            console.log(model[0].toString());
+            // console.log(model[0].toString());
             model[0].save(err);
-            res.redirect('/man');
+            if(err ==null)
+                res.send({suc:true, result:model[0]});
+            else
+                res.send({suc:false, result:"에러"});
         })
 
 }
 
 exports.woman_vote = function (req,res,callback){
-
-    var id = req.body.id;
+    var id = req.body.idx;
     var gender = "man"
 
     mdd
         .find({num:id,gender:gender})
         .exec(function(err,model){
             model[0].cnt++;
-            console.log(model[0].toString());
+            // console.log(model[0].toString());
             model[0].save(err);
-            res.redirect('/woman');
+            if(err == null)
+                res.send({suc:true, result:model[0]});
+            else
+                res.send({suc:false, result:"에러"});
         })
 
 }
@@ -50,10 +53,6 @@ exports.enroll = function (req,res,callback){
     //var name = req.body.name;
     var woman_name = ['설현','레이첼 맥아담스', '아이린','현아','다현','태연','수지','하니'];
     var man_name = ['박보검','공유','Leonardo Dicaprio', '마동석','이제훈','송중기','이민호','Seon Opry'];
-    // console.log("id is " + id + "gender is " + gender + "name is " + name);
-
-
-    // mdd.remove({});
 
     async.waterfall([
             function(callback){
@@ -114,16 +113,4 @@ exports.enroll = function (req,res,callback){
     );
 
 
-
-
-
-
-
-
-
-    //Model.md(req.body.id,req.body.gender,function(err){
-    //    if(err)
-    //    throw err;
-
-    //})
 }
