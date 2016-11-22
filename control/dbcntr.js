@@ -87,7 +87,7 @@ exports.enroll = function (req,res,callback){
             function(resultA,callback){
                 var cnt =0;
                 for(var i=1; i<9; i++){
-                    var model = new mdd.md();
+                    var model = new mdd();
                     model.num = i;
                     model.gender = "woman";
                     model.name = woman_name[i-1];
@@ -105,7 +105,7 @@ exports.enroll = function (req,res,callback){
                 }
 
                 for(var i=1; i<9; i++){
-                    var model = new mdd.md();
+                    var model = new mdd();
                     model.num = i;
                     model.gender = "man";
                     model.name = man_name[i-1];
