@@ -198,6 +198,7 @@
         $.post("/man_vote", {idx: num },
                 function(data) {
                     if(data.suc == false){
+                        alert(data.result);
                         return;
                     }
                     console.log(data);

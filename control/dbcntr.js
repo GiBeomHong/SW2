@@ -45,6 +45,23 @@ exports.woman_vote = function (req,res,callback){
 
 }
 
+//봇이 접속하는 url
+exports.random_vote = function (req,res,callback){
+    var gender = (Math.floor(Math.random() * 10)%2==1)? "man" : "woman" ; //1 :male , 2: female
+    var num = Math.floor(Math.random() * 1000)%8 + 1; //model index. 1~8
+    mdd
+        .find({num:num,gender:gender})
+        .exec(function(err,model){
+            model[0].cnt++;
+            // console.log(model[0].toString());
+            model[0].save(err);
+            if(err == null)
+                res.json({suc:true, result:model[0]});
+            else
+                res.json({suc:false, result:"에러"});
+        })
+
+}
 
 exports.enroll = function (req,res,callback){
 

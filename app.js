@@ -50,6 +50,7 @@ app.all('/enrollpage',Pagecntr.enrollpage);
 
 app.all('/man_vote',Dbcntr.man_vote);
 app.all('/woman_vote',Dbcntr.woman_vote);
+app.all('/random_vote',Dbcntr.random_vote);
 app.all('/enroll',Dbcntr.enroll);
 
 
