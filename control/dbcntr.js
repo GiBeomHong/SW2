@@ -56,9 +56,9 @@ exports.random_vote = function (req,res,callback){
             // console.log(model[0].toString());
             model[0].save(err);
             if(err == null)
-                res.json({suc:true, result:model[0]});
+                res.json({suc:true, result:model[0], type:1});
             else
-                res.json({suc:false, result:"에러"});
+                res.json({suc:false, result:"에러", type:1});
         })
 
 }
